@@ -18,21 +18,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*CoroutineScope(Dispatchers.IO).launch {
-            val client = OkHttpClient()
-
-            val request = Request.Builder()
-                .url("https://hotels4.p.rapidapi.com/locations/v2/search?query=new%20york&locale=en_US&currency=USD")
-                .get()
-                .addHeader("X-RapidAPI-Key", "a61a1d1143msha75bba8b74f07d4p13cbd1jsn580989349a45")
-                .addHeader("X-RapidAPI-Host", "hotels4.p.rapidapi.com")
-                .build()
-
-            val response = client.newCall(request).execute()
-
-            Timber.d("MainActivity_TAG: onCreate: response: ${response.body()?.string()}")
-        }*/
-
         findViewById<Button>(R.id.btnHelloWorld).setOnClickListener {
             callWebService()
         }
