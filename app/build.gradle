@@ -51,7 +51,19 @@ dependencies {
     //endregion
 
     //region Retrofit
+    implementation "com.squareup.okhttp3:okhttp:4.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
     implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
+    //endregion
+
+    //region Koin
+    // Koin for Kotlin apps
+    implementation "io.insert-koin:koin-core:2.1.6"
+    implementation "io.insert-koin:koin-core-ext:2.1.6"
+    implementation "io.insert-koin:koin-androidx-scope:2.1.6"
+    implementation "io.insert-koin:koin-androidx-viewmodel:2.1.6"
+    // Testing
+    testImplementation "io.insert-koin:koin-test:2.1.6"
     //endregion
 }
