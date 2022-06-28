@@ -66,4 +66,7 @@ dependencies {
     // Testing
     testImplementation "io.insert-koin:koin-test:2.1.6"
     //endregion
+
+    // Map
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
 }
