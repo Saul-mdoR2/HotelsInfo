@@ -1,8 +1,8 @@
 package com.r2devpros.hotelsinfo
 
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import com.r2devpros.hotelsinfo.repository.remote.handle
 import com.r2devpros.hotelsinfo.repository.remote.hotelServer.HotelServiceManager
 import kotlinx.coroutines.CoroutineScope
@@ -18,15 +18,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<Button>(R.id.btnHelloWorld).setOnClickListener {
-            callWebService()
-        }
+        findViewById<SearchView>(R.id.svLocation).setOnQueryTextListener(object :
+            SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (query != null) {
+                    callWebService(query)
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                return false
+            }
+
+        })
     }
 
-    private fun callWebService() {
+    private fun callWebService(query: String) {
         CoroutineScope(Dispatchers.IO).launch {
             Timber.d("MainActivity_TAG: callWebService: ")
-            hotelServiceManager.search("New York").handle(
+            hotelServiceManager.search(query).handle(
                 error = {
                     Timber.d("MainActivity_TAG: callWebService: error: $it")
                 }, success = {
@@ -35,4 +46,5 @@ class MainActivity : AppCompatActivity() {
             )
         }
     }
+
 }
