@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HotelsInfo</string>
+    <string name="txt_marker_title">Marker %1$s</string>
+    <string name="txt_hotel_type">HOTEL_GROUP</string>
 </resources>

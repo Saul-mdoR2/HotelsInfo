@@ -26,7 +26,9 @@ class HotelServiceImpl(
                             destinationId = entity.destinationId ?: "",
                             type = entity.type ?: "",
                             caption = entity.caption ?: "",
-                            name = entity.name ?: ""
+                            name = entity.name ?: "",
+                            latitude = entity.latitude ?: 0.0,
+                            longitude = entity.longitude ?: 0.0
                         )
                     } ?: emptyList()
                 )
